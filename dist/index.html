@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Welcome to Firebase Hosting</title>
+
+    <!-- update the version number as needed -->
+    <script defer src="/__/firebase/10.6.0/firebase-app-compat.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <script defer src="/__/firebase/10.6.0/firebase-auth-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-database-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-firestore-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-functions-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-messaging-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-storage-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-analytics-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-remote-config-compat.js"></script>
+    <script defer src="/__/firebase/10.6.0/firebase-performance-compat.js"></script>
+    <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+    <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  </head>
+  <body>
+    <style>
+      body{
+        margin: 0;
+        padding: 0;
+        transition: .5s;
+      }
+      h1{
+        position: relative;
+        font-size: 40px;
+        padding: 1%;
+        border-radius: 10px;
+      }
+      .block-time{
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .block-time div{
+        position: absolute;
+        background-color: red;
+        color: red;
+      }
+      .block-time div:nth-child(1) {
+        left: 0;
+        bottom: 0;
+        animation: div1 800ms ease-in-out 2.2s infinite;
+      }
+      .block-time div:nth-child(2) {
+        left: 0;
+        top: 0;
+        animation: div2 800ms ease-in-out 1s infinite;
+      }
+      .block-time div:nth-child(3) {
+        right: 0;
+        top: 0;
+        animation: div3 800ms ease-in-out 1.4s infinite;
+      }
+      .block-time div:nth-child(4) {
+        right: 0;
+        bottom: 0;
+        animation: div4 800ms ease-in-out 1.8s infinite;
+      }
+      @media(max-width: 500px){
+        h1{
+          padding: 2.5%;
+        }
+      }
+      @keyframes div1{
+        from{
+          width: 10px;
+          height: 0;
+        }
+        to{
+          width: 10px;
+          height: 100%;
+        }
+      }
+      @keyframes div2{
+        from{
+          width: 0;
+          height: 10px;
+        }
+        to{
+          width: 100%;
+          height: 10px;
+        }
+      }
+      @keyframes div3{
+        from{
+          width: 10px;
+          height: 0;
+        }
+        to{
+          width: 10px;
+          height: 100%;
+        }
+      }
+      @keyframes div4{
+        from{
+          width: 0;
+          height: 10px;
+        }
+        to{
+          width: 100%;
+          height: 10px;
+        }
+      }
+    </style>
+    <div class="block-time">
+      <h1 class="header">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <span class="block-hours"></span>
+        <span class="block-minutes"></span>
+        <span class="block-seconds"></span>
+      </h1>
+    </div>
+    <script>
+      console.log('Time works');
+      setInterval(() => {
+        console.log('Time works');
+        let date = new Date();
+        setInterval(() => {
+          document.querySelector('.block-hours').textContent = date.getHours() < 10 ? '0' + date.getHours() + ' : ' : date.getHours() + ' :';
+          document.querySelector('.block-minutes').textContent = date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes() + ' : ';
+          document.querySelector('.block-seconds').textContent = date.getSeconds() < 10 ? '0' + date.getSeconds() + ' .' : date.getSeconds() + '.';
+        } , 1000);
+      } , 1000);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+body{
+	margin: 0;
+	padding: 0;
+	transition: .5s;
+}
+h1{
+	position: relative;
+	font-size: 40px;
+	padding: 1%;
+	border-radius: 10px;
+}
+.block-time{
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.block-time div{
+	position: absolute;
+	background-color: red;
+	color: red;
+}
+.block-time div:nth-child(1) {
+	left: 0;
+	bottom: 0;
+	animation: div1 800ms ease-in-out 2.2s infinite;
+}
+.block-time div:nth-child(2) {
+	left: 0;
+	top: 0;
+	animation: div2 800ms ease-in-out 1s infinite;
+}
+.block-time div:nth-child(3) {
+	right: 0;
+	top: 0;
+	animation: div3 800ms ease-in-out 1.4s infinite;
+}
+.block-time div:nth-child(4) {
+	right: 0;
+	bottom: 0;
+	animation: div4 800ms ease-in-out 1.8s infinite;
+}
+@media(max-width: 500px){
+	h1{
+	  padding: 2.5%;
+	}
+  }
+@keyframes div1{
+	from{
+		width: 10px;
+		height: 0;
+	}
+	to{
+		width: 10px;
+		height: 100%;
+	}
+}
+@keyframes div2{
+	from{
+		width: 0;
+		height: 10px;
+	}
+	to{
+		width: 100%;
+		height: 10px;
+	}
+}
+@keyframes div3{
+	from{
+		width: 10px;
+		height: 0;
+	}
+	to{
+		width: 10px;
+		height: 100%;
+	}
+}
+@keyframes div4{
+	from{
+		width: 0;
+		height: 10px;
+	}
+	to{
+		width: 100%;
+		height: 10px;
+	}
+}
+
+.block-date{
+	background: #fff;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 89.5%;
+	text-align: center;
+	font-size: 20px;
+}
+
+
